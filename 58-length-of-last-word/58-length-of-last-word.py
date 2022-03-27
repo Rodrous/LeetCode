@@ -7,10 +7,9 @@ class Solution:
             if i == " ":
                 pass
             else:
-                if i != " ":
-                    size += 1
-                    if j+1 < len(s)-1 and s[j+1] == " ":
-                        return size
+                size += 1
+                if j+1 < len(s)-1 and s[j+1] == " ":
+                    return size
         return size
                 
                 
