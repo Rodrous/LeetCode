@@ -3,7 +3,7 @@ class Solution:
         memoryDict: Dict = {}
         i: int = 0 
         j: int = 0
-        maxValue = 0
+        maxValue: int = 0
         while j <= len(s)-1:
             if s[j] not in memoryDict:
                 memoryDict[s[j]] = 1
