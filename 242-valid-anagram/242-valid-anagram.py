@@ -1,7 +1,7 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         frequencyMapper_1: Dict = {}
-        frequencyMapper_2: Dict = {}
+        
         
         if len(s) != len(t): return False
         
@@ -11,11 +11,14 @@ class Solution:
             else:
                 frequencyMapper_1[i] = 1
         
-        for j in t:
-            if j in frequencyMapper_2:
-                frequencyMapper_2[j] += 1
-            else:
-                frequencyMapper_2[j] = 1
-        return frequencyMapper_1 == frequencyMapper_2
-    
         
+        for i in t:
+            if i in frequencyMapper_1:
+                frequencyMapper_1[i] -=1
+                if frequencyMapper_1[i] == 0:
+                    del frequencyMapper_1[i]
+            
+        
+        if frequencyMapper_1:
+            return False
+        return True
