@@ -1,10 +1,10 @@
+import heapq as hq
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        answer: int = 0
         
-        for i, val1 in enumerate(nums):
-            for j, val2 in enumerate(nums):
-                if i != j:
-                    possible = (val1-1)*(val2-1)
-                    answer = max(possible,answer)
-        return answer
+        hq._heapify_max(nums)
+        
+        nums1 = hq._heappop_max(nums)
+        nums2 = hq._heappop_max(nums)
+        
+        return (nums1-1)*(nums2-1)
