@@ -10,20 +10,10 @@ class Solution:
         if not root:
             return TreeNode(val)
         
-        curr_node = root
-        while True:
-            if curr_node.val <= val:
-                if curr_node.right:
-                    curr_node = curr_node.right
-                else:
-                    curr_node.right = TreeNode(val)
-                    break
-            else:
-                if curr_node.left:
-                    curr_node = curr_node.left
-                else:
-                    curr_node.left = TreeNode(val)
-                    break
+        elif root.val > val:
+            root.left = self.insertIntoBST(root.left,val)
+        else:
+            root.right = self.insertIntoBST(root.right,val)
         
         return root
             
