@@ -4,24 +4,26 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-import queue as queue
+import queue
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
+        #Can be done using BFS
         q = queue.Queue()
         q.put(root)
-        maxRightNow: List = []
+        result = []
+        
         while q.qsize():
-            qLength = q.qsize()
-            result: List = []
-            for i in range(qLength):
+            dummyResult = []
+            
+            for i in range(q.qsize()):
                 node = q.get()
                 if node:
-                    result.append(node.val)
+                    dummyResult.append(node.val)
                     q.put(node.left)
                     q.put(node.right)
-            if result:
-                maxRightNow.append(result)
-        return len(maxRightNow)
-                    
-            
+            if dummyResult:
+                result.append(dummyResult)
+        return len(result)
+       
+        
         
