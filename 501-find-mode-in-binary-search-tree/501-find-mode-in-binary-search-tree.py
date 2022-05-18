@@ -22,8 +22,8 @@ class Solution:
         if root:
             if root.val not in self.memoryMap:
                 self.memoryMap[root.val] = 1
-            elif root.val in self.memoryMap:
-                self.memoryMap[root.val] +=1
+            
+            self.memoryMap[root.val] +=1
             
             self.fillMemoryMap(root.left)
             self.fillMemoryMap(root.right)
