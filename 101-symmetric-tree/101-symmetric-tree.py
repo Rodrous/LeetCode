@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def checkout(self,p: Optional[TreeNode],q: Optional[TreeNode]) -> bool:
+    def isSame(self,p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         if not p and not q:
             return True
         if not p or not q:
@@ -13,11 +13,7 @@ class Solution:
         if p.val != q.val:
             return False
         
-        return self.checkout(p.left, q.right) and \
-               self.checkout(p.right,q.left)
-        
+        return self.isSame(p.left,q.right) and self.isSame(p.right, q.left)
+    
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        return self.checkout(root.left, root.right)
-        
-       
-        
+        return self.isSame(root.left,root.right)
