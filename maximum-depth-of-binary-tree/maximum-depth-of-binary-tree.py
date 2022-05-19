@@ -8,12 +8,9 @@ class Solution:
     def __init__(self):
         self.solution = 0
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        self.calculateDepth(root,1)
-        return self.solution
-    def calculateDepth(self,root: Optional[TreeNode],depthRightNow:int ):
+        if not root:
+            return 0
         if root:
-            self.solution = max(self.solution,depthRightNow)
-            self.calculateDepth(root.left, depthRightNow+1)
-            self.calculateDepth(root.right, depthRightNow+1)
-        
-        
+            l = self.maxDepth(root.left)
+            r = self.maxDepth(root.right)
+            return max(l,r)+1
