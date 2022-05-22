@@ -23,10 +23,8 @@ class Solution:
                     q.put(node.right)
             
             for i in range(len(tempArray)-1):
-                if i != len(tempArray)-1:
-                    tempArray[i].next = tempArray[i+1]
-                else:
-                    tempArray[i+1].next = None
+                tempArray[i].next = tempArray[i+1]
+                
         return root
                 
                 
