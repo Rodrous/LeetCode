@@ -7,7 +7,7 @@ class Solution:
         
     
     def reverseMedaddy(self,s: List[str], p:int , q:int) -> None:
-        if p == q or q < p:
+        if p >= q:
             return
         
         s[q],s[p] = s[p],s[q]
