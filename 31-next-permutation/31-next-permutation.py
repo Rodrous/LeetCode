@@ -26,4 +26,4 @@ class Solution:
         
         nums[swap],nums[pivot-1] = nums[pivot-1] , nums[swap]
         
-        nums[pivot:] = reversed(nums[pivot:])
+        nums[pivot:] = sorted(nums[pivot:])
