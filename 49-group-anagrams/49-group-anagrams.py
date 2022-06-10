@@ -1,0 +1,12 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        res = defaultdict(list)
+        for c in strs:
+            count = [0]*26
+            
+            for v in c:
+                count[ord(v)-ord("a")] += 1
+            
+            res[tuple(count)].append(c)
+        
+        return res.values()
