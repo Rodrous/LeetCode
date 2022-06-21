@@ -10,6 +10,6 @@ class Solution:
                 memoryDict[i] = 1
 
         
-        sorted_freq = dict(sorted(memoryDict.items(), key=operator.itemgetter(1),reverse=True))
-        return(list(sorted_freq.keys())[0:k])
+        return list(dict(sorted(memoryDict.items(), key=operator.itemgetter(1),reverse=True)).keys())[0:k]
+        
         
