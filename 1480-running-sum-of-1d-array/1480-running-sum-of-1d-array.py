@@ -3,7 +3,5 @@ class Solution:
         result: List = [nums[0]]
         
         for i in range(1,len(nums)):
-            result.append(nums[i]+result[-1])
-        
+            result.append(result[-1]+nums[i])
         return result
-            
