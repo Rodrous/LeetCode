@@ -1,21 +1,21 @@
 class Solution:
     def reverse(self, x: int) -> int:
-        temp = x
-        max_u32 = 2 ** 31
-        min_u32 = max_u32 * -1
-        rev: int = 0
-        if x <0 :
+        solution: int = 0
+        isNegative: bool = False
+        
+        if x < 0:
+            isNegative = True
             x = x*-1
-                
-        while x!=0:
-            pop: int = x % 10
+    
+        while x != 0:
+            solution = solution * 10 + x%10
             x //= 10
-            rev = rev * 10 + pop
-            
-        if temp < 0:
-            rev = rev * -1
-            
-        if rev >= max_u32 or rev <= min_u32:
+        
+        if isNegative:
+            solution = solution* -1
+        
+        if solution >= 2**31 or solution <=  -2**31:
             return 0
-        return rev
+        
+        return solution
         
