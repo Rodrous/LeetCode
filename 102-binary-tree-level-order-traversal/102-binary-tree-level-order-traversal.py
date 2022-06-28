@@ -4,26 +4,25 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
+import queue
 class Solution:
-    
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        import queue as queue
         q = queue.Queue()
         q.put(root)
-        
         result: List = []
-        
         while q.qsize():
-            queueLength = q.qsize()
-            levelResult = []
-            for i in range(queueLength):
+            level_result: List = []
+            for i in range(q.qsize()):
+                
                 node = q.get()
                 if node:
-                    levelResult.append(node.val)
                     q.put(node.left)
                     q.put(node.right)
-            if levelResult:
-                result.append(levelResult)
+                    level_result.append(node.val)
+                
+            if level_result:
+                result.append(level_result)
         
         return result
+            
+        
