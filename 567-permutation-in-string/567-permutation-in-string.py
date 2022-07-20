@@ -1,38 +1,15 @@
-class Solution(object):
-    def checkInclusion(self, s1, s2):
-        """
-        :type s1: str
-        :type s2: str
-        :rtype: bool
-        """
-        windowSize = len(s1)
-        start = 0
-        if len(s1) > len(s2):
-            return False
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        ptr_a = 0
+        ptr_b = len(s1)
         
-        while (start + windowSize) <= len(s2):
-            if self.isAnagram(s2[start:start+windowSize], s1):
+        while ptr_b <= len(s2):
+            if self.checkAnagram(s1,s2[ptr_a:ptr_b]):
                 return True
-            start = start + 1
-        
+            ptr_a += 1
+            ptr_b += 1
         return False
     
-    def isAnagram(self, s1, s2):
-        s1Map = {}
-        
-        for ch in s1:
-            if ch in s1Map:
-                s1Map[ch] +=1
-            else:
-                s1Map[ch] = 1
-        
-        for ch in s2:
-            if ch in s1Map:
-                s1Map[ch] -=1
-        
-        for k,v in s1Map.items():
-            if v != 0:
-                return False
-            
-        return True
-                   
+    
+    def checkAnagram(self,s1,s2) -> bool:
+        return collections.Counter(s1) == collections.Counter(s2)
