@@ -2,7 +2,7 @@ class Solution:
     def climbStairs(self, n: int) -> int:
         
         memoryMap = {}
-        def drySe(n):
+        def dfs(n):
             if n == 0:
                 return 1
             
@@ -12,10 +12,10 @@ class Solution:
             if n in memoryMap:
                 return memoryMap[n]
             
-            memoryMap[n] = drySe(n-1) + drySe(n-2)
+            memoryMap[n] = dfs(n-1) + dfs(n-2)
             
             return memoryMap[n]
             
             
-            
-        return drySe(n)
+        print(memoryMap)   
+        return dfs(n)
